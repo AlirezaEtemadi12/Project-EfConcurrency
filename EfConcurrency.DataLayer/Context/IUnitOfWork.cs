@@ -16,7 +16,7 @@ namespace EfConcurrency.DataLayer.Context
         void ChangeState<TEntity>(TEntity entity, EntityState state) where TEntity : class;
         void UpdateFields<TEntity>(TEntity entity, params Expression<Func<TEntity, object>>[] fields) where TEntity : class;
         void UpdateFields<TEntity>(TEntity entity, params string[] fields) where TEntity : class;
-        void ExcludeFieldFromUpdate<TEntity>(TEntity entity, params Expression<Func<TEntity, object>>[] updatedProperties) where TEntity : class;
+        void ExcludeFieldsFromUpdate<TEntity>(TEntity entity, params Expression<Func<TEntity, object>>[] excludedFields) where TEntity : class;
         T ExecuteSafely<T>(Func<T> fn);
         int SaveChanges(bool validateOnSaveEnabled = true);
         int SaveChangesSafely(bool validateOnSaveEnabled = true);

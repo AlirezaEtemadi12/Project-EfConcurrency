@@ -109,10 +109,10 @@ namespace EfConcurrency.DataLayer.Context
             }
         }
 
-        public void ExcludeFieldFromUpdate<TEntity>(TEntity entity, params Expression<Func<TEntity, object>>[] updatedProperties) where TEntity : class
+        public void ExcludeFieldsFromUpdate<TEntity>(TEntity entity, params Expression<Func<TEntity, object>>[] excludedFields) where TEntity : class
         {
             var dbEntityEntry = Entry(entity);
-            foreach (var property in updatedProperties)
+            foreach (var property in excludedFields)
             {
                 dbEntityEntry.Property(property).IsModified = false;
             }

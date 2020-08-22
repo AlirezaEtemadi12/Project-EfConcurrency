@@ -42,6 +42,10 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="StructureMap, Version=4.7.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\StructureMap.4.7.1\lib\net45\StructureMap.dll</HintPath>
     </Reference>
@@ -63,11 +67,43 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configs\AutoMapperConfig.cs" />
+    <Compile Include="IServices\ITrackService.cs" />
+    <Compile Include="IServices\IAlbumService.cs" />
+    <Compile Include="IServices\IApplicationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\TrackService.cs" />
+    <Compile Include="Services\AlbumService.cs" />
+    <Compile Include="MapperProfiles\TrackProfile.cs" />
+    <Compile Include="ViewModels\Track\TrackCreateViewModel.cs" />
+    <Compile Include="ViewModels\Track\TrackEditViewModel.cs" />
+    <Compile Include="ViewModels\Track\TrackViewModel.cs" />
+    <Compile Include="ViewModels\BaseViewModel\BaseCreateViewModel.cs" />
+    <Compile Include="ViewModels\BaseViewModel\BaseEditViewModel.cs" />
+    <Compile Include="ViewModels\BaseViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModels\BaseViewModel\IBaseViewModel.cs" />
+    <Compile Include="ViewModels\ErrorResources.Designer.cs" />
+    <Compile Include="ViewModels\Album\AlbumCreateViewModel.cs" />
+    <Compile Include="ViewModels\Album\AlbumEditViewModel.cs" />
+    <Compile Include="MapperProfiles\AlbumProfile.cs" />
+    <Compile Include="ViewModels\Album\AlbumViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ViewModels\ErrorResources.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EfConcurrency.Common\EfConcurrency.Common.csproj">
+      <Project>{1b63e124-cf05-411c-a530-9c7b12f61f78}</Project>
+      <Name>EfConcurrency.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EfConcurrency.DataLayer\EfConcurrency.DataLayer.csproj">
+      <Project>{afce69f6-c7c2-4472-8460-9d7697fed60c}</Project>
+      <Name>EfConcurrency.DataLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
