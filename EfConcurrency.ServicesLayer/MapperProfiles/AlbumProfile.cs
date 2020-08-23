@@ -11,7 +11,7 @@ namespace EfConcurrency.ServicesLayer.MapperProfiles
             CreateMap<Album, AlbumViewModel>()
                 .ReverseMap();
             CreateMap<AlbumCreateViewModel, Album>();
-            CreateMap<AlbumEditViewModel, Album>();
+            CreateMap<AlbumUpdateViewModel, Album>();
         }
     }
 }

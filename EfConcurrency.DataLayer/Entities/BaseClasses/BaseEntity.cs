@@ -1,5 +1,4 @@
 ﻿using System;
-using EfConcurrency.DataLayer.BaseClasses;
 
 namespace EfConcurrency.DataLayer.Entities.BaseClasses
 {

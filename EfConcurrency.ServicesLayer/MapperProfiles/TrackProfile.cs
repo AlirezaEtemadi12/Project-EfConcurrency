@@ -10,7 +10,7 @@ namespace EfConcurrency.ServicesLayer.MapperProfiles
         {
             CreateMap<TrackViewModel, Track>().ReverseMap();
             CreateMap<TrackCreateViewModel, Track>();
-            CreateMap<TrackEditViewModel, Track>();
+            CreateMap<TrackUpdateViewModel, Track>();
         }
     }
 }

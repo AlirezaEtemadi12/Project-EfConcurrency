@@ -31,11 +31,6 @@ namespace EfConcurrency.ServicesLayer.Services
                 .FirstOrDefault();
         }
 
-        public AlbumViewModel DetailSafely(Guid id)
-        {
-            return _uow.ExecuteSafely(() => Detail(id));
-        }
-
         public List<AlbumViewModel> List()
         {
             return _albums
@@ -45,18 +40,17 @@ namespace EfConcurrency.ServicesLayer.Services
                 .ToList();
         }
 
-        public AlbumViewModel Add(AlbumCreateViewModel albumCreateViewModel)
+        public AlbumViewModel Create(AlbumCreateViewModel albumCreateViewModel)
         {
             var album = Mapper.Map<Album>(albumCreateViewModel);
             _albums.Add(album);
             _uow.SaveChanges();
 
-            return Mapper.Map<AlbumViewModel>(album);
+            return Detail(album.Id);
         }
 
-        public AlbumViewModel Update(AlbumViewModel albumViewModel)
+        public AlbumViewModel Update(AlbumUpdateViewModel albumViewModel)
         {
-            albumViewModel.UpdateDateTime = DateTime.Now;
             var album = Mapper.Map<Album>(albumViewModel);
 
             _uow.MarkAsUnchanged(album);
@@ -67,17 +61,39 @@ namespace EfConcurrency.ServicesLayer.Services
             return Detail(album.Id);
         }
 
-        public AlbumViewModel UpdateSafely(AlbumViewModel albumViewModel)
-        {
-            return _uow.ExecuteSafely(() => Update(albumViewModel));
-        }
-
         public bool Delete(AlbumViewModel albumViewModel)
         {
             var site = Mapper.Map<Album>(albumViewModel);
             _uow.MarkAsDeleted(site);
             return _uow.SaveChanges() > 0;
         }
+
+        #region ### Safe methods ###
+        public AlbumViewModel DetailSafely(Guid id)
+        {
+            return _uow.ExecuteSafely(() => Detail(id));
+        }
+
+        public List<AlbumViewModel> ListSafely()
+        {
+            return _uow.ExecuteSafely(List);
+        }
+
+        public AlbumViewModel AddSafely(AlbumCreateViewModel albumCreateViewModel)
+        {
+            return _uow.ExecuteSafely(() => Create(albumCreateViewModel));
+        }
+
+        public AlbumViewModel UpdateSafely(AlbumUpdateViewModel albumViewModel)
+        {
+            return _uow.ExecuteSafely(() => Update(albumViewModel));
+        }
+
+        public bool DeleteSafely(AlbumViewModel albumViewModel)
+        {
+            return _uow.ExecuteSafely(() => Delete(albumViewModel));
+        }
+        #endregion
 
         public void Dispose()
         {

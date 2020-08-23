@@ -8,16 +8,24 @@ namespace EfConcurrency.ServicesLayer.IServices
     {
         AlbumViewModel Detail(Guid id);
 
-        AlbumViewModel DetailSafely(Guid id);
-
         List<AlbumViewModel> List();
 
-        AlbumViewModel Add(AlbumCreateViewModel albumCreateViewModel);
+        AlbumViewModel Create(AlbumCreateViewModel albumCreateViewModel);
 
-        AlbumViewModel Update(AlbumViewModel albumViewModel);
-
-        AlbumViewModel UpdateSafely(AlbumViewModel albumViewModel);
+        AlbumViewModel Update(AlbumUpdateViewModel albumViewModel);
 
         bool Delete(AlbumViewModel albumViewModel);
+
+        #region ### Safe methods ###
+        AlbumViewModel DetailSafely(Guid id);
+
+        List<AlbumViewModel> ListSafely();
+
+        AlbumViewModel AddSafely(AlbumCreateViewModel albumCreateViewModel);
+
+        AlbumViewModel UpdateSafely(AlbumUpdateViewModel albumViewModel);
+
+        bool DeleteSafely(AlbumViewModel albumViewModel);
+        #endregion
     }
 }

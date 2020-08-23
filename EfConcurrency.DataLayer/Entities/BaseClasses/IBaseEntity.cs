@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace EfConcurrency.DataLayer.BaseClasses
+namespace EfConcurrency.DataLayer.Entities.BaseClasses
 {
     public interface IBaseEntity<TKey>
     {

@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace EfConcurrency.ServicesLayer.ViewModels.BaseViewModel
 {
-    public class BaseEditViewModel : IBaseViewModel<Guid>
+    public class BaseUpdateViewModel : IBaseViewModel<Guid>
     {
         [Required(ErrorMessageResourceType = typeof(ErrorResources), ErrorMessageResourceName = "Required")]
         public Guid Id { get; set; }

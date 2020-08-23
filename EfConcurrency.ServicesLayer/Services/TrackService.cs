@@ -45,7 +45,7 @@ namespace EfConcurrency.ServicesLayer.Services
                 .ToList();
         }
 
-        public TrackViewModel Add(TrackCreateViewModel trackCreateViewModel)
+        public TrackViewModel Create(TrackCreateViewModel trackCreateViewModel)
         {
             var track = Mapper.Map<Track>(trackCreateViewModel);
             _tracks.Add(track);
@@ -54,9 +54,8 @@ namespace EfConcurrency.ServicesLayer.Services
             return Mapper.Map<TrackViewModel>(track);
         }
 
-        public TrackViewModel Update(TrackViewModel trackViewModel)
+        public TrackViewModel Update(TrackUpdateViewModel trackViewModel)
         {
-            trackViewModel.UpdateDateTime = DateTime.Now;
             var track = Mapper.Map<Track>(trackViewModel);
 
             _uow.MarkAsUnchanged(track);

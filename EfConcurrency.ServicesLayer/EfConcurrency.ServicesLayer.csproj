@@ -75,16 +75,18 @@
     <Compile Include="Services\TrackService.cs" />
     <Compile Include="Services\AlbumService.cs" />
     <Compile Include="MapperProfiles\TrackProfile.cs" />
+    <Compile Include="Configs\StructureMapConfig.cs" />
+    <Compile Include="ViewModels\PublicViewModel\ResponseObject.cs" />
     <Compile Include="ViewModels\Track\TrackCreateViewModel.cs" />
-    <Compile Include="ViewModels\Track\TrackEditViewModel.cs" />
+    <Compile Include="ViewModels\Track\TrackUpdateViewModel.cs" />
     <Compile Include="ViewModels\Track\TrackViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel\BaseCreateViewModel.cs" />
-    <Compile Include="ViewModels\BaseViewModel\BaseEditViewModel.cs" />
+    <Compile Include="ViewModels\BaseViewModel\BaseUpdateViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel\IBaseViewModel.cs" />
     <Compile Include="ViewModels\ErrorResources.Designer.cs" />
     <Compile Include="ViewModels\Album\AlbumCreateViewModel.cs" />
-    <Compile Include="ViewModels\Album\AlbumEditViewModel.cs" />
+    <Compile Include="ViewModels\Album\AlbumUpdateViewModel.cs" />
     <Compile Include="MapperProfiles\AlbumProfile.cs" />
     <Compile Include="ViewModels\Album\AlbumViewModel.cs" />
   </ItemGroup>

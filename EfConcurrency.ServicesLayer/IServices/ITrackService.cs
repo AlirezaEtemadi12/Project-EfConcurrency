@@ -10,9 +10,9 @@ namespace EfConcurrency.ServicesLayer.IServices
 
         List<TrackViewModel> List();
 
-        TrackViewModel Add(TrackCreateViewModel trackCreateViewModel);
+        TrackViewModel Create(TrackCreateViewModel trackCreateViewModel);
 
-        TrackViewModel Update(TrackViewModel trackViewModel);
+        TrackViewModel Update(TrackUpdateViewModel trackViewModel);
 
         bool Delete(TrackViewModel trackViewModel);
     }
